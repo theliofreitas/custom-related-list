@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <!-- Related List data properties -->
+            <property name="targetObject" type="String" label="Child or Sibling Object" description="Child or Sibling Object API name to query the records."/>
+            <property name="lookupField" type="String" label="Lookup Field (of the child/sibling object)" description="Lookup field API name in the child/sibling object to filter the records."/>
+            <property name="parentField" type="String" label="Parent Field (only for sibling objects)" description="Leave it blank for child objects, or fill with the Parent Lookup field name for sibling objects."/>
+            <property name="fields" type="String" label="Fields to display" description="Fields API names splitted by comma."/>
+            <!-- Related List layout properties -->
+            <property name="title" type="String" label="Title" description="Related List title."/>
+            <property name="mode" type="String" label="Mode" description="Display mode for each record: 'edit', 'view', or 'readonly'."/>
+            <property name="columnNumber" type="String" label="Number of columns" description="Number of columns to be displayed."/>
+            <property name="density" type="String" label="Layout density" description="Field labels position: 'compact', 'comfy', or 'auto'."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

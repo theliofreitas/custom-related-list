@@ -1,0 +1,29 @@
+<template>  
+    <lightning-card title={title} icon-name="standard:record">  
+        <div class="slds-var-m-around_medium">  
+            <div if:true={records}>  
+                <template for:each={records} for:item="rec">
+                    <div key={rec.Id} class="slds-var-p-around_xxx-small">  
+                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                            <span class="slds-text-link" onclick={viewRecord} data-value={rec.Id}>{rec.Name}</span>
+
+                            <div class="lgc-bg slds-dropdown_actions">
+                                <lightning-button-menu icon-size="x-small" alternative-text="Show actions" menu-alignment="right">
+                                    <lightning-menu-item value="Edit" label="Editar" data-value={rec.Id} onclick={editRecord}></lightning-menu-item>
+                                </lightning-button-menu>
+                            </div>
+                        </div>
+
+                        <lightning-record-form record-id={rec.Id}   
+                                               object-api-name={targetObject}
+                                               fields={fieldsArray}                                            
+                                               mode={mode}
+                                               columns={columnNumber}
+                                               density={density}>
+                        </lightning-record-form>
+                    </div>  
+                </template>  
+            </div>   
+        </div>  
+    </lightning-card>     
+</template>
