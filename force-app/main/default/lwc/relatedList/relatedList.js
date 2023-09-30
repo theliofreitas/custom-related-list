@@ -16,8 +16,10 @@ export default class RelatedList extends NavigationMixin(LightningElement) {
     @api mode;
     @api columnNumber;
     @api density;
+    @api displayNumber;
     // Private properties
     records;
+    totalRecords = 0;
 
     get properties() {
         var properties = {
@@ -35,10 +37,15 @@ export default class RelatedList extends NavigationMixin(LightningElement) {
         return this.fields.split(',');
     }
 
+    get displayTitle() {
+        return this.title + ` (${this.totalRecords})`;
+    }
+
     connectedCallback() {
         console.log(this.fieldValue);
         getRecords({ jsonString: this.properties }).then(results => {
             this.records = results;
+            this.totalRecords = this.records.length;
         });
     }
 

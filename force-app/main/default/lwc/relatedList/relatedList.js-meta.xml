@@ -17,6 +17,7 @@
             <property name="mode" type="String" label="Mode" description="Display mode for each record: 'edit', 'view', or 'readonly'."/>
             <property name="columnNumber" type="String" label="Number of columns" description="Number of columns to be displayed."/>
             <property name="density" type="String" label="Layout density" description="Field labels position: 'compact', 'comfy', or 'auto'."/>
+            <property name="displayNumber" type="Integer" default="3" label="Display number" description="Number of records to display (default = 3)."/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
