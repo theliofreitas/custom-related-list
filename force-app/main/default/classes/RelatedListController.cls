@@ -4,7 +4,7 @@ public with sharing class RelatedListController {
         Properties properties = (Properties) System.JSON.deserialize(jsonString, Properties.class);
 
         Id lookupRecordId = getLookupRecordId(properties);
-        String query = 'SELECT Id, Name FROM ' + properties.targetObject + ' WHERE ' + properties.lookupField + ' = :lookupRecordId';
+        String query = 'SELECT Id, Name FROM ' + properties.targetObject + ' WHERE ' + properties.lookupField + ' = :lookupRecordId ORDER BY CreatedDate ASC';
 
         return Database.query(query);
     }

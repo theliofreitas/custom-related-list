@@ -33,12 +33,16 @@ export default class RelatedList extends NavigationMixin(LightningElement) {
         return JSON.stringify(properties);
     }
 
-    get fieldsArray() {
+    get displayFields() {
         return this.fields.split(',');
     }
 
     get displayTitle() {
         return this.title + ` (${this.totalRecords})`;
+    }
+
+    get displayRecords() {
+        return this.records ? this.records.slice(0, this.displayNumber) : [];
     }
 
     connectedCallback() {
